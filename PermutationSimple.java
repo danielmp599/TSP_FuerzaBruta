@@ -7,14 +7,14 @@ import java.util.Set;
 
 public class PermutationSimple {
 
-    private static final int tam = 8; //variable global con el tamaño de la matriz cambiar este si cambia el tamaño de la matriz(n*n)
+    private static final int tam = 8; //Variable global con el tamaño de la matriz 
     Set<String> results = new HashSet<>(0);
 
     public PermutationSimple() {
         // TODO Auto-generated constructor stub
     }
     //Este metodo sirve para generar las permutaciones n!
-    public static List<String> generatePermutations(Set<Integer> availableNumbers) { //Metodo que retorna una lista con las permutaciones sin repeticion
+    public static List<String> generatePermutations(Set<Integer> availableNumbers) { //Método que retorna una lista con las permutaciones sin repeticion
         List<String> permutations = new LinkedList<>(); //Aqui vamos a almacenar las permutaciones nuevas
         for (Integer number : availableNumbers) { //Un for para almacenar el numero de permutacioens
             Set<Integer> numbers = new HashSet<>(availableNumbers);
@@ -35,12 +35,12 @@ public class PermutationSimple {
 
     //Clase main
     public static void main(String[] args) {
-        Set<Integer> availableNumbers = new HashSet<>(0); //Aui almaceno los primeronumeros 
-        Set<Integer> nulos = new HashSet<>(0);//Aqui almaceno cada que en cierta fila encuentre algun valor nulo, almacena el indice
-        int suma;// variable auxiliar para sumar los costos
-        //generamos matriz puede ser aleatoria o ingresarla de forma manual
+        Set<Integer> availableNumbers = new HashSet<>(0); //Almacena los primeros numeros 
+        Set<Integer> nulos = new HashSet<>(0);//Almacena cada que en cierta fila encuentre algun valor nulo, almacena el indice
+        int suma;// Variable auxiliar para sumar los costos
+        //Generamos matriz puede ser aleatoria o ingresarla de forma manual
         System.out.println("Tabla de costos");
-        //descomentar la sig linea si quieres los numeros aleatorios y comentar la manual 
+        //Descomentar la sig linea si quieres los numeros aleatorios y comentar la manual 
 //        int[][] grafos = new int[tam][tam];
         int[][] grafos = {{0, 8 ,0, 9, 4, 7,4,6},{3,0,9,3,1,0,4,4},{5,7,0,2,4,4,7,3},
             {2,6,2,0,0,3,2,0},{5,4,3,3,0,4,8,9},{3,0,5,4,8,0,3,9},{6,4,8,0,5,9,0,3},{3,5,9,3,2,2,6,0}}; //Aqui se ingresa los valores para la matriz de costos
@@ -57,18 +57,18 @@ public class PermutationSimple {
             System.out.println("");
         }
 
-        for (int i = 0; i < tam; i++) {// aqui se apila para calcular su factorial
+        for (int i = 0; i < tam; i++) {// Se agrega para calcular su factorial
             availableNumbers.add(i);
         }
 
-        List<String> permutations = generatePermutations(availableNumbers); // se llama al metodo que regresa las permutaciones en formato String
-        System.out.println(permutations);//imprime la lista permutaciones
+        List<String> permutations = generatePermutations(availableNumbers); // Se llama al metodo que regresa las permutaciones en formato String
+        System.out.println(permutations);//Imprime la lista permutaciones
 
         System.out.println("");
-        int indice = permutations.size();//variable auxiliar con el tamaño de la lista
-        int[] aux = new int[permutations.get(0).length()]; // vector auxiliar para almacenar los indices de las permutaciones
+        int indice = permutations.size();//Variable auxiliar con el tamaño de la lista
+        int[] aux = new int[permutations.get(0).length()]; // Vector auxiliar para almacenar los indices de las permutaciones
         System.out.println("");
-        System.out.println("Permutaciones: " + permutations.size()); //se imprime el total de permutaciones, usualmente es n!
+        System.out.println("Permutaciones: " + permutations.size()); //Se imprime el total de permutaciones, usualmente es n!
         System.out.println("****Ciclo Hamilton****=======***Costo***");
         for (int i = 0; i < indice; i++) {
             nulos.clear();//Se limpia la lista nulos
